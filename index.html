@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#070a12">
+<meta name="description" content="MS3V SMP Converter — Browser-based audio converter by 0x474F44">
+<title>MS3V SMP Converter — 0x474F44</title>
+<style>
+:root{--bg:#070a12;--panel:#101727;--line:#27344d;--text:#f5f7ff;--muted:#98a6bf;--a:#5b8cff;--b:#7c5cff;--ok:#25d18a;--bad:#ff6578}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 12% 0%,rgba(91,140,255,.16),transparent 30%),radial-gradient(circle at 90% 8%,rgba(124,92,255,.15),transparent 28%),var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}a{color:inherit;text-decoration:none}.container{width:min(1120px,calc(100% - 34px));margin:auto}
+nav{position:sticky;top:0;z-index:20;background:rgba(7,10,18,.78);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.07)}.navin{height:68px;display:flex;align-items:center;justify-content:space-between}.logo{display:flex;align-items:center;gap:10px;font-weight:850}.mark{width:36px;height:36px;border-radius:11px;background:linear-gradient(135deg,var(--a),var(--b));display:grid;place-items:center;box-shadow:0 8px 25px rgba(91,140,255,.28)}.navlinks{display:flex;gap:20px;color:var(--muted);font-size:14px}.navlinks a:hover{color:#fff}
+.btn{border:0;border-radius:12px;padding:12px 17px;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:.18s transform,.18s opacity}.btn:hover{transform:translateY(-1px)}.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}.primary{color:#fff;background:linear-gradient(135deg,var(--a),var(--b));box-shadow:0 12px 30px rgba(91,140,255,.22)}.secondary{color:#fff;background:#182238;border:1px solid #2b3955}
+.hero{text-align:center;padding:90px 0 66px}.badge{display:inline-flex;align-items:center;gap:8px;border:1px solid #2b3955;background:rgba(18,26,43,.76);padding:8px 12px;border-radius:999px;color:#b9c5da;font-size:13px}.dot{width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 15px var(--ok)}h1{font-size:clamp(42px,7vw,76px);line-height:.98;letter-spacing:-.055em;margin:24px auto 18px;max-width:900px}.gradient{background:linear-gradient(90deg,#fff,#9cb9ff 55%,#b59bff);-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{max-width:730px;margin:auto;color:var(--muted);font-size:18px;line-height:1.7}.hero p strong{color:#b9c9ff}.cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:30px}.credit{margin-top:22px;color:#71809a;font-size:12px;letter-spacing:.12em;text-transform:uppercase}.credit strong{color:#8ca9ff}
+.features,.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.features{padding-bottom:70px}.card{background:linear-gradient(180deg,rgba(18,26,43,.94),rgba(12,17,29,.94));border:1px solid var(--line);border-radius:20px;box-shadow:0 20px 70px rgba(0,0,0,.25)}.feature,.step{padding:25px}.icon{width:42px;height:42px;border-radius:12px;background:#18233b;display:grid;place-items:center;font-size:20px;margin-bottom:16px}.feature h3{margin:0 0 8px;font-size:17px}.feature p,.step p{margin:0;color:var(--muted);line-height:1.6;font-size:14px}.section{padding:72px 0}.section-head{text-align:center;margin-bottom:28px}.kicker{color:#8da8ff;text-transform:uppercase;font-size:12px;font-weight:800;letter-spacing:.16em}.section h2{font-size:38px;letter-spacing:-.035em;margin:10px 0}.section-head p{color:var(--muted);margin:auto;max-width:680px;line-height:1.6}
+.converter{padding:26px}.converter-head{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:20px}.converter-head h2{margin:0;font-size:24px}.status{color:var(--muted);font-size:13px;margin-top:5px}.toolbar{display:flex;gap:9px;flex-wrap:wrap}#folder{margin-top:14px;padding:12px 14px;background:#0a0f1b;border:1px solid #202c42;border-radius:12px;color:var(--muted);font-size:13px}.progress-wrap{margin:18px 0 8px}progress{width:100%;height:13px;accent-color:#5b8cff}.counts{color:#7f8da6;font-size:12px;margin-bottom:10px}#log{background:#080c15;border:1px solid #202b40;border-radius:14px;padding:15px;height:270px;overflow:auto;white-space:pre-wrap;font:12px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;color:#cbd5e8}.tip{margin-top:14px;color:#7f8da6;font-size:12px}.num{color:#89a7ff;font-weight:900;font-size:12px;letter-spacing:.15em}.step h3{margin:10px 0 8px}footer{padding:40px 0 70px;color:#71809a;text-align:center;border-top:1px solid rgba(255,255,255,.06)}footer strong{color:#91aaff}.watermark{position:fixed;right:15px;bottom:12px;z-index:50;color:rgba(160,180,220,.30);font-size:10px;letter-spacing:.15em;font-weight:850;pointer-events:none;user-select:none}@media(max-width:800px){.features,.steps{grid-template-columns:1fr}.navlinks{display:none}.hero{padding-top:70px}.converter{padding:18px}.toolbar{width:100%}.toolbar .btn{flex:1}}
+</style>
+</head>
+<body>
+<nav><div class="container navin"><a class="logo" href="#"><span class="mark">⚡</span><span>MS3V Converter</span></a><div class="navlinks"><a href="#converter">Converter</a><a href="#how">How it works</a><a href="#about">About</a></div><a class="btn secondary" href="https://github.com/" target="_blank" rel="noopener">GitHub ↗</a></div></nav>
+<header class="hero"><div class="container"><div class="badge"><span class="dot"></span> Browser-based • Local processing</div><h1>Convert audio to <span class="gradient">MS3V .SMP</span></h1><p>A polished browser converter created and maintained by <strong>0x474F44</strong>. Batch-convert your music without FFmpeg, Termux, Pydroid, or a conversion server.</p><div class="cta"><a class="btn primary" href="#converter">🚀 Launch Converter</a><a class="btn secondary" href="#how">Learn how it works</a></div><div class="credit">Built by <strong>0x474F44</strong></div></div></header>
+<main><section class="container features"><article class="card feature"><div class="icon">📁</div><h3>Bulk conversion</h3><p>Process a whole music folder sequentially. A failed file is logged and does not stop the remaining files.</p></article><article class="card feature"><div class="icon">⚡</div><h3>Browser based</h3><p>No FFmpeg, Termux or Pydroid setup is required for this web edition.</p></article><article class="card feature"><div class="icon">🔒</div><h3>Local processing</h3><p>Your audio is processed in the browser instead of being uploaded to a conversion server.</p></article></section>
+<section id="converter" class="section"><div class="container"><div class="section-head"><div class="kicker">Converter</div><h2>MS3V SMP Converter</h2><p>Use Chrome/Chromium with folder read/write access. For a large library, conversion is deliberately sequential to reduce memory spikes.</p></div><div class="card converter"><div class="converter-head"><div><h2>🎧 Audio → SMP</h2><div id="status" class="status">Loading MP3 encoder…</div></div><div class="toolbar"><button id="src" class="btn primary">📁 Select source folder</button><button id="go" class="btn secondary" disabled>▶ Convert all</button><button id="copy" class="btn secondary">📋 Copy activity log</button><button id="clear" class="btn secondary">Clear log</button></div></div><div id="folder">No folder selected</div><div class="progress-wrap"><progress id="bar" value="0" max="100"></progress></div><div id="counts" class="counts">0 / 0 files processed</div><pre id="log"></pre><div class="tip">Output: <b>MS3V_Converted</b>. Keep backups of known-working SMP files.</div></div></div></section>
+<section id="how" class="section"><div class="container"><div class="section-head"><div class="kicker">Simple workflow</div><h2>Three steps</h2></div><div class="steps"><article class="card step"><div class="num">01 — SELECT</div><h3>Choose your folder</h3><p>Select the folder containing your audio files and grant read/write access when the browser asks.</p></article><article class="card step"><div class="num">02 — CONVERT</div><h3>Run the batch</h3><p>Each file is decoded, resampled and encoded one at a time. Errors are isolated to the affected file.</p></article><article class="card step"><div class="num">03 — TEST</div><h3>Use the SMP files</h3><p>Open the generated folder and test a file on your MS3V player before replacing originals.</p></article></div></div></section>
+<section id="about" class="section"><div class="container"><div class="section-head"><div class="kicker">About</div><h2>Experimental and transparent.</h2><p>The MS3V workflow is an experimental compatibility finding derived from working files and validated on a physical player. It is not an official proprietary format specification.</p></div></div></section></main>
+<footer><div class="container">MS3V SMP Converter • Open-source project • <strong>0x474F44</strong></div></footer><div class="watermark">0x474F44</div>
+<script src="https://unpkg.com/lamejs@1.2.1/lame.all.js"></script>
+<script>
+const KEY=new Uint8Array([0x78,0x56,0x34,0x12]);
+const $=id=>document.getElementById(id); let sourceHandle=null,files=[],busy=false;
+function log(s){$('log').textContent+=s+'\\n';$('log').scrollTop=$('log').scrollHeight}
+function setStatus(s){$('status').textContent=s}
+$('copy').onclick=async()=>{try{await navigator.clipboard.writeText($('log').textContent);setStatus('Activity log copied ✓')}catch(e){setStatus('Copy failed — select the log manually.')}};
+$('clear').onclick=()=>{$('log').textContent='';setStatus('Log cleared')};
+function ms3v(data){const o=new Uint8Array(data.length);for(let i=0;i<data.length;i++)o[i]=data[i]^KEY[i&3];return o}
+function supported(n){return /\\.(mp3|m4a|wav|aac|ogg|flac|opus|wma)$/i.test(n)}
+async function pickFolder(){
+ if(busy)return;
+ try{
+  if(!window.showDirectoryPicker)throw Error('Folder picker unavailable. Use a recent Chrome/Chromium browser.');
+  sourceHandle=await window.showDirectoryPicker({mode:'readwrite'}); files=[];
+  for await(const [name,h] of sourceHandle.entries()) if(h.kind==='file'&&supported(name)) files.push([name,h]);
+  files.sort((a,b)=>a[0].localeCompare(b[0],undefined,{numeric:true,sensitivity:'base'}));
+  $('folder').textContent='Selected folder • '+files.length+' audio file(s)'; $('counts').textContent='0 / '+files.length+' files processed'; $('bar').value=0;
+  log('📁 Source folder selected');log('🎵 Found '+files.length+' supported audio file(s).');
+  $('go').disabled=files.length===0;setStatus(files.length?'Ready':'No supported audio files');
+ }catch(e){log('✗ Folder selection: '+e.message);setStatus(e.message)}
+}
+$('src').onclick=pickFolder;
+function yieldUI(){return new Promise(r=>setTimeout(r,0))}
+async function decodeFile(file){const AC=window.AudioContext||window.webkitAudioContext;if(!AC)throw Error('Web Audio API unavailable.');const ac=new AC();try{return await ac.decodeAudioData(await file.arrayBuffer())}finally{try{await ac.close()}catch{}}}
+async function resample(buffer,target=22050){if(buffer.sampleRate===target&&buffer.numberOfChannels<=2)return buffer;const Offline=window.OfflineAudioContext||window.webkitOfflineAudioContext;if(!Offline)throw Error('OfflineAudioContext unavailable.');const frames=Math.max(1,Math.ceil(buffer.duration*target));const off=new Offline(2,frames,target);const src=off.createBufferSource();src.buffer=buffer;src.connect(off.destination);src.start(0);return await off.startRendering()}
+function pcm(a){const o=new Int16Array(a.length);for(let i=0;i<a.length;i++){const x=Math.max(-1,Math.min(1,a[i]));o[i]=x<0?x*32768:x*32767}return o}
+async function encode(file){
+ const decoded=await decodeFile(file); const b=await resample(decoded,22050); const left=pcm(b.getChannelData(0)); const right=pcm(b.numberOfChannels>1?b.getChannelData(1):b.getChannelData(0));
+ const enc=new lamejs.Mp3Encoder(2,22050,64), chunks=[], block=1152; let total=0;
+ for(let i=0;i<left.length;i+=block){const x=enc.encodeBuffer(left.subarray(i,i+block),right.subarray(i,i+block));if(x.length){chunks.push(new Int8Array(x));total+=x.length}if((i/block)%30===0)await yieldUI()}
+ const end=enc.flush();if(end.length){chunks.push(new Int8Array(end));total+=end.length}const out=new Uint8Array(total);let p=0;for(const x of chunks){out.set(new Uint8Array(x.buffer,x.byteOffset,x.byteLength),p);p+=x.byteLength}return out
+}
+async function run(){
+ if(busy||!sourceHandle||!files.length)return; busy=true;$('go').disabled=true;$('src').disabled=true;$('clear').disabled=true;$('copy').disabled=true;
+ let out,ok=0,bad=0; try{out=await sourceHandle.getDirectoryHandle('MS3V_Converted',{create:true})}catch(e){log('✗ Cannot create/open MS3V_Converted. Grant read/write access to the selected folder.');setStatus('Folder write permission required');busy=false;$('go').disabled=false;$('src').disabled=false;$('clear').disabled=false;$('copy').disabled=false;return}
+ for(let i=0;i<files.length;i++){
+  const [name,h]=files[i];$('bar').value=i*100/files.length;$('counts').textContent=i+' / '+files.length+' files processed';setStatus(`Converting ${i+1}/${files.length}: ${name}`);log(`\\n[${i+1}/${files.length}] ${name}`);
+  try{const f=await h.getFile();const mp3=await encode(f);const smp=ms3v(mp3);const target=name.replace(/\\.[^.]+$/i,'.smp');const wh=await out.getFileHandle(target,{create:true});const w=await wh.createWritable();await w.write(smp);await w.close();ok++;log('   ✓ '+target)}
+  catch(e){bad++;log('   ✗ FAILED: '+(e&&e.message?e.message:String(e)).slice(0,1200))}
+  $('bar').value=(i+1)*100/files.length;$('counts').textContent=(i+1)+' / '+files.length+' files processed';await yieldUI();
+ }
+ log(`\\n🎉 COMPLETE: ${ok} successful, ${bad} failed`);log('📂 Output: MS3V_Converted');setStatus(`Complete — ${ok} successful, ${bad} failed`);busy=false;$('go').disabled=false;$('src').disabled=false;$('clear').disabled=false;$('copy').disabled=false;
+}
+$('go').onclick=run;
+window.addEventListener('load',()=>{if(window.lamejs){setStatus('🟢 MP3 encoder ready');log('✓ lamejs loaded')}else{setStatus('🔴 MP3 encoder failed to load');log('✗ lamejs did not load')}});
+</script>
+</body></html>
