@@ -33,7 +33,7 @@ function setStatus(s){$('status').textContent=s}
 $('copy').onclick=async()=>{try{await navigator.clipboard.writeText($('log').textContent);setStatus('Activity log copied ✓')}catch(e){setStatus('Copy failed — select the log manually.')}};
 $('clear').onclick=()=>{$('log').textContent='';setStatus('Log cleared')};
 function ms3v(data){const o=new Uint8Array(data.length);for(let i=0;i<data.length;i++)o[i]=data[i]^KEY[i&3];return o}
-function supported(n){return /\\.(mp3|m4a|wav|aac|ogg|flac|opus|wma)$/i.test(n)}
+function supported(n){return /\.(mp3|m4a|wav|aac|ogg|flac|opus|wma)$/i.test(n)}
 async function pickFolder(){
  if(busy)return;
  try{
@@ -62,8 +62,16 @@ async function run(){
  let out,ok=0,bad=0; try{out=await sourceHandle.getDirectoryHandle('MS3V_Converted',{create:true})}catch(e){log('✗ Cannot create/open MS3V_Converted. Grant read/write access to the selected folder.');setStatus('Folder write permission required');busy=false;$('go').disabled=false;$('src').disabled=false;$('clear').disabled=false;$('copy').disabled=false;return}
  for(let i=0;i<files.length;i++){
   const [name,h]=files[i];$('bar').value=i*100/files.length;$('counts').textContent=i+' / '+files.length+' files processed';setStatus(`Converting ${i+1}/${files.length}: ${name}`);log(`\\n[${i+1}/${files.length}] ${name}`);
-  try{const f=await h.getFile();const mp3=await encode(f);const smp=ms3v(mp3);const target=name.replace(/\\.[^.]+$/i,'.smp');const wh=await out.getFileHandle(target,{create:true});const w=await wh.createWritable();await w.write(smp);await w.close();ok++;log('   ✓ '+target)}
+  try{const f=await h.getFile();const mp3=await encode(f);const smp=ms3v(mp3);const target=name.replace(/\.[^.]+$/i,'.smp');const wh=await out.getFileHandle(target,{create:true});const w=await wh.createWritable();await w.write(smp);await w.close();ok++;log('   ✓ '+target)}
   catch(e){bad++;log('   ✗ FAILED: '+(e&&e.message?e.message:String(e)).slice(0,1200))}
+  $('bar').value=(i+1)*100/files.length;$('counts').textContent=(i+1)+' / '+files.length+' files processed';await yieldUI();
+ }
+ log(`\\n🎉 COMPLETE: ${ok} successful, ${bad} failed`);log('📂 Output: MS3V_Converted');setStatus(`Complete — ${ok} successful, ${bad} failed`);busy=false;$('go').disabled=false;$('src').disabled=false;$('clear').disabled=false;$('copy').disabled=false;
+}
+$('go').onclick=run;
+window.addEventListener('load',()=>{if(window.lamejs){setStatus('🟢 MP3 encoder ready');log('✓ lamejs loaded')}else{setStatus('🔴 MP3 encoder failed to load');log('✗ lamejs did not load')}});
+</script>
+</body></html>
   $('bar').value=(i+1)*100/files.length;$('counts').textContent=(i+1)+' / '+files.length+' files processed';await yieldUI();
  }
  log(`\\n🎉 COMPLETE: ${ok} successful, ${bad} failed`);log('📂 Output: MS3V_Converted');setStatus(`Complete — ${ok} successful, ${bad} failed`);busy=false;$('go').disabled=false;$('src').disabled=false;$('clear').disabled=false;$('copy').disabled=false;
