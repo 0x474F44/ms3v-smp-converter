@@ -19,7 +19,7 @@ A browser-based experimental converter for creating MS3V `.SMP` audio files from
 
 ## Use
 
-Open `index.html` in a Chromium-based browser. Choose the source folder, grant read/write access when prompted, and click **Convert all**.
+Open `index.html` in a Chromium-based browser. or open it directly from here from the link - https://0x474f44.github.io/ms3v-smp-converter/ Choose the source folder, grant read/write access when prompted, and click **Convert all**.
 
 The converter processes files one at a time and continues after individual failures. This is intentional for large music folders.
 
